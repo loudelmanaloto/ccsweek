@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900 text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CCS Week Scoreboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="p-6 font-sans">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold">CCS WEEK</h1>
+      <!-- <div class="text-lg">Quiz Bowl • <span class="font-mono">03:15</span></div> -->
+    </div>
+
+    <!-- Event Tabs -->
+    <div class="flex space-x-4 mb-4">
+      <button class="px-4 py-2 bg-blue-600 rounded-full">Quiz Bowl</button>
+      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Relay</button>
+      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Debate</button>
+      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Art</button>
+      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Dance</button>
+    </div>
+
+    <!-- Scoreboard Table -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-left border-separate border-spacing-y-2">
+        <thead class="text-sm text-gray-400">
+          <tr>
+            <th>Rank</th>
+            <th>Team</th>
+            <th>Quiz Bowl</th>
+            <th>Relay</th>
+            <th>Debate</th>
+            <th>Art</th>
+            <th>Total Points</th>
+          </tr>
+        </thead>
+        <tbody class="text-white">
+          <tr class="bg-gray-800 rounded-lg">
+            <td class="px-4 py-2">1 🥇</td>
+            <td class="px-4 py-2">Team Alpha</td>
+            <td class="px-4 py-2">10</td>
+            <td class="px-4 py-2">7</td>
+            <td class="px-4 py-2">9</td>
+            <td class="px-4 py-2">6</td>
+            <td class="px-4 py-2 font-bold">40</td>
+          </tr>
+          <tr class="bg-gray-800 rounded-lg">
+            <td class="px-4 py-2">2 🥈</td>
+            <td class="px-4 py-2">Team Beta</td>
+            <td class="px-4 py-2">7</td>
+            <td class="px-4 py-2">10</td>
+            <td class="px-4 py-2">8</td>
+            <td class="px-4 py-2">7</td>
+            <td class="px-4 py-2 font-bold">37</td>
+          </tr>
+          <tr class="bg-gray-800 rounded-lg">
+            <td class="px-4 py-2">3 🥉</td>
+            <td class="px-4 py-2">Team Gamma</td>
+            <td class="px-4 py-2">6</td>
+            <td class="px-4 py-2">9</td>
+            <td class="px-4 py-2">5</td>
+            <td class="px-4 py-2">8</td>
+            <td class="px-4 py-2 font-bold">37</td>
+          </tr>
+          <!-- Add more team rows as needed -->
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
