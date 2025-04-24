@@ -6,15 +6,19 @@
     <title>CCS Week Scoreboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+
+      const changeHeader = (e)=>{
+        const eventHeader = document.getElementById('event-name')
+        eventHeader.innerText = e.innerText
+      }
+
       document.addEventListener('DOMContentLoaded', () => {
         const tabs = document.querySelectorAll('[data-tab]');
         const contents = document.querySelectorAll('[data-content]');
-
         tabs.forEach(tab => {
           tab.addEventListener('click', () => {
             tabs.forEach(t => t.classList.remove('bg-blue-600'));
             tab.classList.add('bg-blue-600');
-
             contents.forEach(content => {
               content.classList.add('hidden');
             });
@@ -35,12 +39,12 @@
 
     <!-- Event Tabs -->
     <div class="flex space-x-4 mb-4">
-      <button data-tab="overall" class="px-4 py-2 bg-blue-600  rounded-full">Overall</button>
-      <button data-tab="quiz" class="px-4 py-2 hover:bg-gray-700 rounded-full">Quiz Bowl</button>
-      <button data-tab="relay" class="px-4 py-2 hover:bg-gray-700 rounded-full">Relay</button>
-      <button data-tab="debate" class="px-4 py-2 hover:bg-gray-700 rounded-full">Debate</button>
-      <button data-tab="art" class="px-4 py-2 hover:bg-gray-700 rounded-full">Art</button>
-      <button data-tab="dance" class="px-4 py-2 hover:bg-gray-700 rounded-full">Dance</button>
+      <button data-tab="overall" class="px-4 py-2 bg-blue-600  rounded-full" onclick="changeHeader(this)">Overall</button>
+      <button data-tab="quiz" class="px-4 py-2 hover:bg-gray-700 rounded-full" onclick="changeHeader(this)">Quiz Bowl</button>
+      <button data-tab="relay" class="px-4 py-2 hover:bg-gray-700 rounded-full" onclick="changeHeader(this)">Relay</button>
+      <button data-tab="debate" class="px-4 py-2 hover:bg-gray-700 rounded-full" onclick="changeHeader(this)">Debate</button>
+      <button data-tab="art" class="px-4 py-2 hover:bg-gray-700 rounded-full" onclick="changeHeader(this)">Art</button>
+      <button data-tab="dance" class="px-4 py-2 hover:bg-gray-700 rounded-full" onclick="changeHeader(this)">Dance</button>
     </div>
 
     <!-- Scoreboard Tables -->
@@ -51,48 +55,176 @@
             <tr>
               <th>Rank</th>
               <th>Team</th>
-              <th>Quiz Bowl</th>
-              <th>Relay</th>
-              <th>Debate</th>
-              <th>Art</th>
-              <th>Dance</th>
+              <th>ESCAPE ROOM</th>
+              <th>SCAVENGER HUNT</th>
+              <th>OBSTACLE COURSE</th>
+              <th>FUTURISTIC DANCE</th>
+              <th>IDEATION</th>
+              <th>THEMED FASHION SHOW</th>
+              <th>BATTLESHIP QUIZ BEE</th>
+              <th>CODING OLYMPICS</th>
+              <th>COMMUNITY VOICE</th>
               <th>Total Score</th>
             </tr>
           </thead>
+
+          
+
+
           <tbody class="text-white">
             <tr class="bg-gray-800 rounded-lg">
               <td class="px-4 py-2">1 🥇</td>
-              <td class="px-4 py-2">Team Alpha</td>
+              <td class="px-4 py-2">NEONULITE</td>
               <td class="px-4 py-2">10</td>
               <td class="px-4 py-2">9</td>
               <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">9</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
               <td class="px-4 py-2">6</td>
               <td class="px-4 py-2">6</td>
               <td class="px-4 py-2 font-bold">39</td>
             </tr>
             <tr class="bg-gray-800 rounded-lg">
               <td class="px-4 py-2">2 🥈</td>
-              <td class="px-4 py-2">Team Beta</td>
+              <td class="px-4 py-2">AERIOLITH</td>
               <td class="px-4 py-2">8</td>
               <td class="px-4 py-2">7</td>
               <td class="px-4 py-2">6</td>
               <td class="px-4 py-2">5</td>
               <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
               <td class="px-4 py-2 font-bold">32</td>
             </tr>
             <tr class="bg-gray-800 rounded-lg">
               <td class="px-4 py-2">3 🥉</td>
-              <td class="px-4 py-2">Team Gamma</td>
+              <td class="px-4 py-2">CRYOSTONE</td>
               <td class="px-4 py-2">3</td>
               <td class="px-4 py-2">2</td>
               <td class="px-4 py-2">1</td>
               <td class="px-4 py-2">1</td>
               <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2 font-bold">8</td>
+            </tr>
+
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">4</td>
+              <td class="px-4 py-2">PLASMAGOLD</td>
+              <td class="px-4 py-2">3</td>
+              <td class="px-4 py-2">2</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2 font-bold">8</td>
+            </tr>
+
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">5</td>
+              <td class="px-4 py-2">GALAXIUM</td>
+              <td class="px-4 py-2">3</td>
+              <td class="px-4 py-2">2</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2 font-bold">8</td>
+            </tr>
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">QUANTUMQUARTZ</td>
+              <td class="px-4 py-2">3</td>
+              <td class="px-4 py-2">2</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2 font-bold">8</td>
+            </tr>
+
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">7</td>
+              <td class="px-4 py-2">CHRONITE</td>
+              <td class="px-4 py-2">3</td>
+              <td class="px-4 py-2">2</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2 font-bold">8</td>
+            </tr>
+
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">BIOLITE</td>
+              <td class="px-4 py-2">3</td>
+              <td class="px-4 py-2">2</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2 font-bold">8</td>
+            </tr>
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">9</td>
+              <td class="px-4 py-2">SYNTHIAM</td>
+              <td class="px-4 py-2">3</td>
+              <td class="px-4 py-2">2</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2 font-bold">8</td>
+            </tr>
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">10</td>
+              <td class="px-4 py-2">NANOELEMENT</td>
+              <td class="px-4 py-2">3</td>
+              <td class="px-4 py-2">2</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
               <td class="px-4 py-2 font-bold">8</td>
             </tr>
           </tbody>
         </table>
       </div>
+
+      
+
+
+
+
 
       <div id="quiz" data-content class="hidden">
         <table class="min-w-full text-left border-separate border-spacing-y-2">
