@@ -5,68 +5,214 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CCS Week Scoreboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('[data-tab]');
+        const contents = document.querySelectorAll('[data-content]');
+
+        tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('bg-blue-600'));
+            tab.classList.add('bg-blue-600');
+
+            contents.forEach(content => {
+              content.classList.add('hidden');
+            });
+
+            const activeContent = document.getElementById(tab.dataset.tab);
+            activeContent.classList.remove('hidden');
+          });
+        });
+      });
+    </script>
   </head>
   <body class="p-6 font-sans">
     <!-- Header -->
     <div class="flex justify-between items-center mb-6">
       <h1 class="text-3xl font-bold">CCS WEEK</h1>
-      <!-- <div class="text-lg">Quiz Bowl • <span class="font-mono">03:15</span></div> -->
+      <div class="text-lg">Current Event • <span class="font-mono" id="event-name">Quiz Bowl</span></div>
     </div>
 
     <!-- Event Tabs -->
     <div class="flex space-x-4 mb-4">
-      <button class="px-4 py-2 bg-blue-600 rounded-full">Quiz Bowl</button>
-      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Relay</button>
-      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Debate</button>
-      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Art</button>
-      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Dance</button>
+      <button data-tab="overall" class="px-4 py-2 bg-blue-600  rounded-full">Overall</button>
+      <button data-tab="quiz" class="px-4 py-2 hover:bg-gray-700 rounded-full">Quiz Bowl</button>
+      <button data-tab="relay" class="px-4 py-2 hover:bg-gray-700 rounded-full">Relay</button>
+      <button data-tab="debate" class="px-4 py-2 hover:bg-gray-700 rounded-full">Debate</button>
+      <button data-tab="art" class="px-4 py-2 hover:bg-gray-700 rounded-full">Art</button>
+      <button data-tab="dance" class="px-4 py-2 hover:bg-gray-700 rounded-full">Dance</button>
     </div>
 
-    <!-- Scoreboard Table -->
+    <!-- Scoreboard Tables -->
     <div class="overflow-x-auto">
-      <table class="min-w-full text-left border-separate border-spacing-y-2">
-        <thead class="text-sm text-gray-400">
-          <tr>
-            <th>Rank</th>
-            <th>Team</th>
-            <th>Quiz Bowl</th>
-            <th>Relay</th>
-            <th>Debate</th>
-            <th>Art</th>
-            <th>Total Points</th>
-          </tr>
-        </thead>
-        <tbody class="text-white">
-          <tr class="bg-gray-800 rounded-lg">
-            <td class="px-4 py-2">1 🥇</td>
-            <td class="px-4 py-2">Team Alpha</td>
-            <td class="px-4 py-2">10</td>
-            <td class="px-4 py-2">7</td>
-            <td class="px-4 py-2">9</td>
-            <td class="px-4 py-2">6</td>
-            <td class="px-4 py-2 font-bold">40</td>
-          </tr>
-          <tr class="bg-gray-800 rounded-lg">
-            <td class="px-4 py-2">2 🥈</td>
-            <td class="px-4 py-2">Team Beta</td>
-            <td class="px-4 py-2">7</td>
-            <td class="px-4 py-2">10</td>
-            <td class="px-4 py-2">8</td>
-            <td class="px-4 py-2">7</td>
-            <td class="px-4 py-2 font-bold">37</td>
-          </tr>
-          <tr class="bg-gray-800 rounded-lg">
-            <td class="px-4 py-2">3 🥉</td>
-            <td class="px-4 py-2">Team Gamma</td>
-            <td class="px-4 py-2">6</td>
-            <td class="px-4 py-2">9</td>
-            <td class="px-4 py-2">5</td>
-            <td class="px-4 py-2">8</td>
-            <td class="px-4 py-2 font-bold">37</td>
-          </tr>
-          <!-- Add more team rows as needed -->
-        </tbody>
-      </table>
+      <div id="overall" data-content class="">
+        <table class="min-w-full text-left border-separate border-spacing-y-2">
+          <thead class="text-sm text-gray-400">
+            <tr>
+              <th>Rank</th>
+              <th>Team</th>
+              <th>Quiz Bowl</th>
+              <th>Relay</th>
+              <th>Debate</th>
+              <th>Art</th>
+              <th>Dance</th>
+              <th>Total Score</th>
+            </tr>
+          </thead>
+          <tbody class="text-white">
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">1 🥇</td>
+              <td class="px-4 py-2">Team Alpha</td>
+              <td class="px-4 py-2">10</td>
+              <td class="px-4 py-2">9</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2 font-bold">39</td>
+            </tr>
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">2 🥈</td>
+              <td class="px-4 py-2">Team Beta</td>
+              <td class="px-4 py-2">8</td>
+              <td class="px-4 py-2">7</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2">5</td>
+              <td class="px-4 py-2">6</td>
+              <td class="px-4 py-2 font-bold">32</td>
+            </tr>
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">3 🥉</td>
+              <td class="px-4 py-2">Team Gamma</td>
+              <td class="px-4 py-2">3</td>
+              <td class="px-4 py-2">2</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2 font-bold">8</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="quiz" data-content class="hidden">
+        <table class="min-w-full text-left border-separate border-spacing-y-2">
+          <thead class="text-sm text-gray-400">
+            <tr>
+              <th>Rank</th>
+              <th>Team</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody class="text-white">
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">1 🥇</td>
+              <td class="px-4 py-2">Team Alpha</td>
+              <td class="px-4 py-2 font-bold">10</td>
+            </tr>
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">2 🥈</td>
+              <td class="px-4 py-2">Team Beta</td>
+              <td class="px-4 py-2 font-bold">7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="relay" data-content class="hidden">
+        <table class="min-w-full text-left border-separate border-spacing-y-2">
+          <thead class="text-sm text-gray-400">
+            <tr>
+              <th>Rank</th>
+              <th>Team</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody class="text-white">
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">1 🥇</td>
+              <td class="px-4 py-2">Team Beta</td>
+              <td class="px-4 py-2 font-bold">10</td>
+            </tr>
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">2 🥈</td>
+              <td class="px-4 py-2">Team Alpha</td>
+              <td class="px-4 py-2 font-bold">7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="debate" data-content class="hidden">
+        <table class="min-w-full text-left border-separate border-spacing-y-2">
+          <thead class="text-sm text-gray-400">
+            <tr>
+              <th>Rank</th>
+              <th>Team</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody class="text-white">
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">1 🥇</td>
+              <td class="px-4 py-2">Team Alpha</td>
+              <td class="px-4 py-2 font-bold">9</td>
+            </tr>
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">2 🥈</td>
+              <td class="px-4 py-2">Team Beta</td>
+              <td class="px-4 py-2 font-bold">8</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="art" data-content class="hidden">
+        <table class="min-w-full text-left border-separate border-spacing-y-2">
+          <thead class="text-sm text-gray-400">
+            <tr>
+              <th>Rank</th>
+              <th>Team</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody class="text-white">
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">1 🥇</td>
+              <td class="px-4 py-2">Team Beta</td>
+              <td class="px-4 py-2 font-bold">7</td>
+            </tr>
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">2 🥈</td>
+              <td class="px-4 py-2">Team Alpha</td>
+              <td class="px-4 py-2 font-bold">6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="dance" data-content class="hidden">
+        <table class="min-w-full text-left border-separate border-spacing-y-2">
+          <thead class="text-sm text-gray-400">
+            <tr>
+              <th>Rank</th>
+              <th>Team</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody class="text-white">
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">1 🥇</td>
+              <td class="px-4 py-2">Team Gamma</td>
+              <td class="px-4 py-2 font-bold">8</td>
+            </tr>
+            <tr class="bg-gray-800 rounded-lg">
+              <td class="px-4 py-2">2 🥈</td>
+              <td class="px-4 py-2">Team Alpha</td>
+              <td class="px-4 py-2 font-bold">7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </body>
 </html>
